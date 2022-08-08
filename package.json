@@ -1,6 +1,6 @@
 {
 	"name": "create-chakra",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"author": "Vedant Nandwana",
 	"main": "./lib/index.js",
 	"type": "module",
@@ -26,12 +26,13 @@
 		"release": "standard-version",
 		"publish:beta": "pnpm run build && npm publish --tag beta",
 		"publish": "pnpm run build && npm publish",
-    "lint": "eslint",
-    "prepare": "husky install",
-    "format": "prettier --write ./src"
+		"lint": "eslint",
+		"prepare": "husky install",
+		"format": "prettier --write ./src"
 	},
 	"devDependencies": {
 		"@types/chalk": "^2.2.0",
+		"@types/clear": "^0.1.2",
 		"@types/commander": "^2.12.2",
 		"@types/figlet": "^1.5.4",
 		"@types/fs-extra": "^9.0.13",

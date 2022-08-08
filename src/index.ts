@@ -9,8 +9,11 @@ import installDependencies from "./cli/output/installDependencies";
 import figlet from "figlet";
 import createProject from "./cli/output/createProject.js";
 import installChakra from "./cli/output/installChakra";
+import clear from "clear";
 
 async function main() {
+  clear();
+
   logger.info("\n");
   logger.higlight(
     figlet.textSync("create chakra", {
