@@ -4,7 +4,7 @@ import { fileURLToPath } from "url";
 let __filename: any;
 
 try {
-   __filename = fileURLToPath(import.meta.url);
+  __filename = fileURLToPath(import.meta.url);
 } catch (error) {
   throw error;
 }

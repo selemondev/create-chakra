@@ -3,7 +3,7 @@ import ora from "ora";
 import path from "path";
 import { COMMON_TEMPLATES_ROOT } from "../../constants";
 import getPackageManager from "../../utils/getPackageManager";
-import installPackages from "../../utils/installPackages"
+import installPackages from "../../utils/installPackages";
 import { UserInput } from "../config";
 
 /**

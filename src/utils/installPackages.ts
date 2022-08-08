@@ -16,9 +16,9 @@ async function installPackages(options: Options) {
   }
 
   const installCommand = packageManager === "npm" ? "install" : "add";
-  const cmd = `${
-    packageManager as string
-  } ${installCommand} ${packages.join(" ")}`;
+  const cmd = `${packageManager as string} ${installCommand} ${packages.join(
+    " ",
+  )}`;
 
   await execAsync(cmd, { cwd: projectDir });
 }

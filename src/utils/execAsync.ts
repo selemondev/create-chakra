@@ -4,4 +4,3 @@ import { promisify } from "util";
 const execa = promisify(exec);
 
 export default execa;
-

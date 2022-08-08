@@ -160,9 +160,9 @@ export const REACT_TS_CONFIG: AppConfig = {
 };
 
 export const CONFIG_BY_ID: Record<string, AppConfig> = {
-  "nextjs": NEXTJS_CONFIG,
+  nextjs: NEXTJS_CONFIG,
   "nextjs-ts": NEXTJS_TS_CONFIG,
-  "react": REACT_CONFIG,
+  react: REACT_CONFIG,
   "react-ts": REACT_TS_CONFIG,
 };
 
