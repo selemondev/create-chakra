@@ -75,6 +75,10 @@ export const NEXTJS_CONFIG: AppConfig = {
       path.join(NEXTJS_CONFIG.templateDir, "index.jsx"),
       path.join(projectDir, "pages", "index.js"),
     );
+    await fs.copy(
+      path.join(NEXTJS_CONFIG.templateDir, "_app.jsx"),
+      path.join(projectDir, "pages", "_app.js"),
+    );
   },
   deleteFiles: async ({ projectDir }) => {
     await fs.remove(path.join(projectDir, "styles/Home.module.css"));
@@ -96,6 +100,10 @@ export const NEXTJS_TS_CONFIG: AppConfig = {
     await fs.copy(
       path.join(NEXTJS_TS_CONFIG.templateDir, "index.tsx"),
       path.join(projectDir, "pages", "index.tsx"),
+    );
+    await fs.copy(
+      path.join(NEXTJS_CONFIG.templateDir, "_app.tsx"),
+      path.join(projectDir, "pages", "_app.tsx"),
     );
   },
   deleteFiles: async ({ projectDir }) => {
