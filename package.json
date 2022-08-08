@@ -27,7 +27,8 @@
 		"publish:beta": "pnpm run build && npm publish --tag beta",
 		"publish": "pnpm run build && npm publish",
     "lint": "eslint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "format": "prettier --write ./src"
 	},
 	"devDependencies": {
 		"@types/chalk": "^2.2.0",
