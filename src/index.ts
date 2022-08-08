@@ -8,6 +8,7 @@ import fs from "fs-extra";
 import installDependencies from "./cli/output/installDependencies";
 import figlet from "figlet";
 import createProject from "./cli/output/createProject.js";
+import installChakra from "./cli/output/installChakra";
 
 async function main() {
   logger.info("\n");
@@ -43,6 +44,7 @@ async function main() {
   }
 
   await createProject(input);
+  await installChakra(input);
   await installDependencies(input);
 
   logger.info(`\nProject created in ${chalk.green.bold(projectDir)}\n`);
