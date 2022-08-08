@@ -61,11 +61,11 @@ const App = () => {
         </Flex>
 
         <Box as="footer" px="8" py="12" border="2" borderColor="gray.800">
-          <div className="px-8 font-medium text-center">
-            <a href="https://github.com/vedantnn71/create-chakra-app">
+          <Box px="8" fontWeight="medium" textAlign="center">
+            <Link href="https://github.com/vedantnn71/create-chakra-app">
               Create Chakra App
-            </a>
-          </div>
+            </Link>
+          </Box>
         </Box>
       </Flex>
     </Box>
