@@ -14,6 +14,7 @@ specifiers:
   eslint: ^8.21.0
   figlet: ^1.5.2
   fs-extra: ^10.1.0
+  husky: ^8.0.1
   inquirer: ^9.1.0
   nodemon: ^2.0.19
   ora: ^6.1.2
@@ -44,6 +45,7 @@ devDependencies:
   '@types/node': 18.6.4
   '@types/yargs': 17.0.11
   eslint: 8.21.0
+  husky: 8.0.1
   nodemon: 2.0.19
   prettier: 2.7.1
   ts-node: 10.9.1_hn66opzbaneygq52jmwjxha6su
@@ -1061,6 +1063,12 @@ packages:
   /human-signals/2.1.0:
     resolution: {integrity: sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==}
     engines: {node: '>=10.17.0'}
+    dev: true
+
+  /husky/8.0.1:
+    resolution: {integrity: sha512-xs7/chUH/CKdOCs7Zy0Aev9e/dKOMZf3K1Az1nar3tzlv0jfqnYtu235bstsWTmXOR0EfINrPa97yy4Lz6RiKw==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /iconv-lite/0.4.24:
