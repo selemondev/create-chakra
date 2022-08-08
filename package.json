@@ -3,17 +3,29 @@
 	"version": "0.0.1",
 	"author": "Vedant Nandwana",
 	"main": "./lib/index.js",
+	"type": "module",
+	"exports": "./dist/index.js",
 	"description": "⚒ Tool to scaffold chakra apps, without wasting time.",
-  "keywords": ["chakra", "chakra-ui", "next", "react", "nextjs", "javascript", "typescript"],
+	"keywords": [
+		"chakra",
+		"chakra-ui",
+		"next",
+		"react",
+		"nextjs",
+		"javascript",
+		"typescript"
+	],
 	"bin": {
-		"create-chakra": "./lib/index.js"
+		"create-chakra": "./dist/index.js"
 	},
 	"scripts": {
-		"dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
-		"dev:windows": "nodemon --watch 'src/**/*.ts' --exec \"pnpm dlx ts-node\" src/index.ts",
-		"build": "tsc -p .",
-		"publish:beta": "npm run build && npm publish --tag beta",
-		"publish": " npm run build && npm publish"
+    "build": "tsup src/index.ts --format esm --clean --sourcemap --minify --metafile",
+    "dev": "tsup src/index.ts --format esm --watch --clean --onSuccess \"node dist/index.js\"",
+    "start": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "standard-version",
+    "publish:beta": "npm run build && npm publish --tag beta",
+    "publish": " npm run build && npm publish"
 	},
 	"devDependencies": {
 		"@types/chalk": "^2.2.0",
@@ -27,6 +39,7 @@
 		"nodemon": "^2.0.19",
 		"prettier": "^2.7.1",
 		"ts-node": "^10.9.1",
+		"tsup": "^6.2.1",
 		"typescript": "^4.7.4"
 	},
 	"dependencies": {
