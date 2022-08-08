@@ -1,0 +1,24 @@
+import chalk from "chalk";
+
+const logger = {
+  log: (...args: unknown[]) => {
+    console.log(...args);
+  },
+  error(...args: unknown[]) {
+    console.log(chalk.red(...args));
+  },
+  warn(...args: unknown[]) {
+    console.log(chalk.yellow(...args));
+  },
+  info(...args: unknown[]) {
+    console.log(chalk.cyan(...args));
+  },
+  success(...args: unknown[]) {
+    console.log(chalk.green(...args));
+  },
+  higlight(...args: unknown[]) {
+    console.log(chalk.bgBlack(...args));
+  },
+};
+
+export default logger;
