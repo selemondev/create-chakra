@@ -27,6 +27,8 @@ export default async function installDependencies(input: UserInput) {
     "@emotion/react",
     "@emotion/styled",
     "framer-motion",
+    "@chakra-ui/vue-next",
+    "@vueuse/shared",
     ...devDependencies,
   ];
 
