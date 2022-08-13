@@ -1,4 +1,4 @@
-![create-chakra example](https://user-images.githubusercontent.com/70624701/183402788-df6573dd-1657-4a06-9481-945b7fb928ed.png)
+![create-chakra example](https://user-images.githubusercontent.com/70624701/184507059-bbed2dad-513e-4d27-b5bf-3bd43e027331.png)
 
 ## Create Chakra Project (create-chakra)
 ⚒ Tool to scaffold chakra apps, without wasting time. It uses existing tools like `create-next-app` and `create-vite` and then configures chakra ui in the project.
@@ -27,6 +27,7 @@ yarn create <project-name> --template <id>
 |:---------|:-----------|:----------------|
 |nextjs    | Next.js    | create-next-app |
 |react     | React      | create-vite     |
+|vue       | Vue        | create-vite     |
 
 NOTE: Add the `-ts` postfix to the ID to install with TypeScript
 
