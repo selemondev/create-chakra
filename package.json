@@ -1,6 +1,6 @@
 {
 	"name": "create-chakra",
-	"version": "0.0.6",
+	"version": "0.0.61",
 	"author": "Vedant Nandwana",
 	"main": "./lib/index.js",
 	"type": "module",
