@@ -3,6 +3,7 @@ import { PKG_ROOT } from "../constants";
 import { PackageManager } from "../utils/getPackageManager.js";
 import createReactCommand from "./commands/createReact.js";
 import createNextCommand from "./commands/createNext.js";
+import createVueCommand from "./commands/createVue.js";
 // import { createAstroCommand } from "./commands/createAstro.js";
 import fs from "fs-extra";
 import path from "path";
@@ -21,6 +22,8 @@ export const supportedTemplateIds = [
   "nextjs-ts",
   "react",
   "react-ts",
+  "vue",
+  "vue-ts"
 ] as const;
 
 export type Dependencies = typeof supportedDependencies[number];
@@ -159,11 +162,66 @@ export const REACT_TS_CONFIG: AppConfig = {
   createInstallCommand: createReactCommand,
 };
 
+export const VUE_CONFIG: AppConfig = {
+  templateId: "vue",
+  displayName: `Vue ${chalk.dim("(create-vite)")}`,
+  language: "js",
+  templateDir: path.join(PKG_ROOT, "templates/vue"),
+  scaffoldingTool: "create-vite",
+  twConfigExtension: ".cjs",
+  copyTemplate: async ({ projectDir }) => {
+    await fs.copy(
+      path.join(VUE_CONFIG.templateDir, "App.vue"),
+      path.join(projectDir, "src/App.vue"),
+    );
+    await fs.copy(
+      path.join(VUE_CONFIG.templateDir, "main.js"),
+      path.join(projectDir, "src", "main.js"),
+    );
+  },
+  getCssOutputPath: ({ projectDir }) => {
+    return path.join(projectDir, "src/index.css");
+  },
+  deleteFiles: async ({ projectDir }) => {
+    await fs.remove(path.join(projectDir, "src/style.css"));
+  },
+  createInstallCommand: createVueCommand,
+};
+
+export const VUE_TS_CONFIG: AppConfig = {
+  templateId: "vue-ts",
+  displayName: `Vue ${chalk.dim("(TypeScript, create-vite)")}`,
+  language: "js",
+  templateDir: path.join(PKG_ROOT, "templates/vue-ts"),
+  scaffoldingTool: "create-vite",
+  twConfigExtension: ".cjs",
+  copyTemplate: async ({ projectDir }) => {
+    await fs.copy(
+      path.join(VUE_TS_CONFIG.templateDir, "App.vue"),
+      path.join(projectDir, "src/App.vue"),
+    );
+    await fs.copy(
+      path.join(VUE_TS_CONFIG.templateDir, "main.ts"),
+      path.join(projectDir, "src", "main.ts"),
+    );
+  },
+  getCssOutputPath: ({ projectDir }) => {
+    return path.join(projectDir, "src/index.css");
+  },
+  deleteFiles: async ({ projectDir }) => {
+    await fs.remove(path.join(projectDir, "src/style.css"));
+  },
+  createInstallCommand: createVueCommand,
+};
+
+
 export const CONFIG_BY_ID: Record<string, AppConfig> = {
   nextjs: NEXTJS_CONFIG,
   "nextjs-ts": NEXTJS_TS_CONFIG,
   react: REACT_CONFIG,
   "react-ts": REACT_TS_CONFIG,
+  vue: VUE_CONFIG,
+  "vue-ts": VUE_TS_CONFIG
 };
 
 export const getConfig = (configId: string) => CONFIG_BY_ID[configId];
