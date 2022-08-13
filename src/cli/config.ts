@@ -23,7 +23,7 @@ export const supportedTemplateIds = [
   "react",
   "react-ts",
   "vue",
-  "vue-ts"
+  "vue-ts",
 ] as const;
 
 export type Dependencies = typeof supportedDependencies[number];
@@ -214,14 +214,13 @@ export const VUE_TS_CONFIG: AppConfig = {
   createInstallCommand: createVueCommand,
 };
 
-
 export const CONFIG_BY_ID: Record<string, AppConfig> = {
   nextjs: NEXTJS_CONFIG,
   "nextjs-ts": NEXTJS_TS_CONFIG,
   react: REACT_CONFIG,
   "react-ts": REACT_TS_CONFIG,
   vue: VUE_CONFIG,
-  "vue-ts": VUE_TS_CONFIG
+  "vue-ts": VUE_TS_CONFIG,
 };
 
 export const getConfig = (configId: string) => CONFIG_BY_ID[configId];

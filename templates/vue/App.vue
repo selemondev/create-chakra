@@ -1,10 +1,11 @@
 <script setup>
-import { CFlex, CBox, CButton, CLink, CText } from "@chakra-ui/vue-next";
-import { ref } from "vue";
-const count = ref(0);
-const Increment = () => {
-  return count.value++
-}
+  import { CFlex, CBox, CButton, CLink, CText } from "@chakra-ui/vue-next";
+  import { ref } from "vue";
+
+  const count = ref(0);
+  const increment = () => {
+    return count.value++
+  }
 </script>
 
 <template>
@@ -28,7 +29,7 @@ const Increment = () => {
         </CBox>
 
         <CBox align="center" mt="4">
-          <CButton @click="Increment()">Count is : {{ count }}</CButton>
+          <CButton @click="increment()">Count is : {{ count }}</CButton>
         </CBox>
       </CBox>
     </CBox>
