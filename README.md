@@ -18,7 +18,16 @@ yarn create chakra
 
 # OR
 
-yarn create <project-name> --template <id> 
+yarn create chakra <project-name> --template <id> 
+```
+
+### pnpm
+```
+pnpm create chakra
+
+# OR
+
+pnpm create chakra <project-name> --template <id>
 ```
 
 ### Scaffolding tools
