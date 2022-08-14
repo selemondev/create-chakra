@@ -57,9 +57,6 @@ export interface AppConfig {
   language: Language;
   templateDir: string;
   scaffoldingTool: string;
-  twConfigExtension: string;
-  twDependencies?: string[];
-  skipTailwindInstall?: boolean;
   copyTemplate: (userInput: UserInput) => Promise<void>;
   deleteFiles?: (userInput: UserInput) => Promise<void>;
   getCssOutputPath: (userInput: UserInput) => string;
@@ -72,7 +69,6 @@ export const NEXTJS_CONFIG: AppConfig = {
   language: "js",
   templateDir: path.join(PKG_ROOT, "templates/nextjs"),
   scaffoldingTool: "create-next-app",
-  twConfigExtension: ".js",
   copyTemplate: async ({ projectDir }) => {
     await fs.copy(
       path.join(NEXTJS_CONFIG.templateDir, "index.jsx"),
@@ -98,7 +94,6 @@ export const NEXTJS_TS_CONFIG: AppConfig = {
   language: "ts",
   templateDir: path.join(PKG_ROOT, "templates/nextjs-ts"),
   scaffoldingTool: "create-next-app",
-  twConfigExtension: ".js",
   copyTemplate: async ({ projectDir }) => {
     await fs.copy(
       path.join(NEXTJS_TS_CONFIG.templateDir, "index.tsx"),
@@ -124,7 +119,6 @@ export const REACT_CONFIG: AppConfig = {
   language: "js",
   templateDir: path.join(PKG_ROOT, "templates/react"),
   scaffoldingTool: "create-vite",
-  twConfigExtension: ".cjs",
   copyTemplate: async ({ projectDir }) => {
     await fs.copy(
       path.join(REACT_CONFIG.templateDir, "App.jsx"),
@@ -146,7 +140,6 @@ export const REACT_TS_CONFIG: AppConfig = {
   language: "js",
   templateDir: path.join(PKG_ROOT, "templates/react-ts"),
   scaffoldingTool: "create-vite",
-  twConfigExtension: ".cjs",
   copyTemplate: async ({ projectDir }) => {
     await fs.copy(
       path.join(REACT_TS_CONFIG.templateDir, "App.tsx"),
@@ -168,7 +161,6 @@ export const VUE_CONFIG: AppConfig = {
   language: "js",
   templateDir: path.join(PKG_ROOT, "templates/vue"),
   scaffoldingTool: "create-vite",
-  twConfigExtension: ".cjs",
   copyTemplate: async ({ projectDir }) => {
     await fs.copy(
       path.join(VUE_CONFIG.templateDir, "App.vue"),
@@ -194,7 +186,6 @@ export const VUE_TS_CONFIG: AppConfig = {
   language: "js",
   templateDir: path.join(PKG_ROOT, "templates/vue-ts"),
   scaffoldingTool: "create-vite",
-  twConfigExtension: ".cjs",
   copyTemplate: async ({ projectDir }) => {
     await fs.copy(
       path.join(VUE_TS_CONFIG.templateDir, "App.vue"),
