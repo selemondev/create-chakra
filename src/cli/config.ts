@@ -100,7 +100,7 @@ export const NEXTJS_TS_CONFIG: AppConfig = {
       path.join(projectDir, "pages", "index.tsx"),
     );
     await fs.copy(
-      path.join(NEXTJS_CONFIG.templateDir, "_app.tsx"),
+      path.join(NEXTJS_TS_CONFIG.templateDir, "_app.tsx"),
       path.join(projectDir, "pages", "_app.tsx"),
     );
   },
