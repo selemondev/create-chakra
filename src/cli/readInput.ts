@@ -47,10 +47,8 @@ async function readInput() {
     const tid = await readTemplateId(
       supportedTemplateIds.filter((id) => !id.includes("ts")),
     );
-    console.log("tid", tid);
     const language = await readLanguage();
     const templateIdKey = `${tid}${language === "ts" ? "-ts" : ""}`;
-    console.log("templateIdKey", templateIdKey);
     const config = getConfig(templateIdKey);
 
     if (!config) {
