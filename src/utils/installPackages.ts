@@ -15,7 +15,7 @@ async function installPackages(options: Options) {
     return;
   }
 
-  const installCommand = packageManager === "npm" ? "install" : "add";
+  const installCommand = (await packageManager) === "yarn" ? "add" : "install";
   const cmd = `${packageManager as string} ${installCommand} ${packages.join(
     " ",
   )}`;
