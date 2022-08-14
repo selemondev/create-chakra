@@ -2,7 +2,6 @@ import fs from "fs-extra";
 import ora from "ora";
 import path from "path";
 import { COMMON_TEMPLATES_ROOT } from "../../constants";
-import getPackageManager from "../../utils/getPackageManager";
 import installPackages from "../../utils/installPackages";
 import { UserInput } from "../config";
 
@@ -13,7 +12,7 @@ import { UserInput } from "../config";
  * @param projectDir Path to the project directory
  */
 export default async function installDependencies(input: UserInput) {
-  const { projectDir } = input;
+  const { projectDir, packageManager } = input;
 
   const devDependencies = input.dependencies.filter(
     (d) => dependenciesMap[d] === "dev",
@@ -36,13 +35,13 @@ export default async function installDependencies(input: UserInput) {
   await installPackages({
     dev: true,
     projectDir,
-    packageManager: getPackageManager(),
+    packageManager,
     packages,
   });
   await installPackages({
     dev: false,
     projectDir,
-    packageManager: getPackageManager(),
+    packageManager,
     packages: dependencies,
   });
   spinner.succeed(`Dependencies installed`);

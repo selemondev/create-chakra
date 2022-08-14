@@ -1,3 +1,5 @@
+export type PackageManager = "npm" | "yarn" | "pnpm";
+
 function getPackageManager() {
   const userAgent = process.env.npm_config_user_agent;
 
@@ -18,5 +20,4 @@ function getPackageManager() {
   return "npm";
 }
 
-export type PackageManager = "npm" | "yarn" | "pnpm";
 export default getPackageManager;

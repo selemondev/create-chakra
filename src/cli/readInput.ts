@@ -23,6 +23,8 @@ const DEFAULTS: UserInput = {
   appConfig: NEXTJS_CONFIG,
 };
 
+type PackageManager = "npm" | "yarn" | "pnpm";
+
 async function readInput() {
   const input = { ...DEFAULTS };
   const { template: templateId } = program.opts();
@@ -59,6 +61,7 @@ async function readInput() {
   }
 
   input.dependencies = await readDependencies();
+  input.packageManager = await readPackageManager();
   input.projectDir = path.resolve(process.cwd(), input.projectName);
 
   return input;
@@ -127,6 +130,24 @@ async function readLanguage() {
   });
 
   return language;
+}
+
+async function readPackageManager() {
+  const { packageManager } = await inquirer.prompt<{
+    packageManager: PackageManager;
+  }>({
+    name: "packageManager",
+    type: "list",
+    message: "What package manager do you prefer?",
+    choices: [
+      { name: "npm", value: "npm" },
+      { name: "yarn", value: "yarn" },
+      { name: "pnpm", value: "pnpm" },
+    ],
+    default: "npm",
+  });
+
+  return packageManager;
 }
 
 /**

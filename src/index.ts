@@ -25,8 +25,7 @@ async function main() {
   logger.success("The easiest way to create a Chakra project\n");
 
   const input = await readInput();
-  const { projectDir, projectName } = input;
-  const pkgManager = getPackageManager();
+  const { projectDir, projectName, packageManager: pkgManager } = input;
 
   logger.info(`\nUsing: ${chalk.cyan.bold(pkgManager)}\n`);
 
