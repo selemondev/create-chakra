@@ -50,3 +50,17 @@ npx create-chakra@latest --template <id>
 # OR
 yarn create chakra --template <id>
 ```
+
+## Contributing
+Pull requests are always welcome, but pleasure ensure that you've properly tested and the project is working correctly.
+
+### Testing locally
+Just clone the repo and run:
+```bash
+pnpm build && ./dist/index.js
+
+# OR
+pnpm build && npm i --location=global .
+```
+
+** Please, prefer using `pnpm` rather than `npm` or `yarn` while building `create-chakra` locally as it will avoid conflicts. I have not tested `create-chakra` with `npm` or `yarn`.**
