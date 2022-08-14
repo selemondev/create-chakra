@@ -40,9 +40,6 @@ pnpm create chakra <project-name> --template <id>
 
 NOTE: Add the `-ts` postfix to the ID to install with TypeScript
 
-### Currently it's in very early stage of development
-I'd appreciate your ideas, reports or any contribution to the project. Support for pnpm and some other frameworks will be added soon.
-
 ### Include template id to skip input steps
 
 ```bash
@@ -52,7 +49,7 @@ yarn create chakra --template <id>
 ```
 
 ## Contributing
-Pull requests are always welcome, but pleasure ensure that you've properly tested and the project is working correctly.
+Pull requests are always welcome, but please ensure that you've properly tested and the project is working correctly.
 
 ### Testing locally
 Just clone the repo and run:
@@ -63,4 +60,4 @@ pnpm build && ./dist/index.js
 pnpm build && npm i --location=global .
 ```
 
-** Please, prefer using `pnpm` rather than `npm` or `yarn` while building `create-chakra` locally as it will avoid conflicts. I have not tested `create-chakra` with `npm` or `yarn`.**
+**Please, prefer using `pnpm` rather than `npm` or `yarn` while building `create-chakra` locally as it will avoid conflicts. I have not tested `create-chakra` with `npm` or `yarn`.**
