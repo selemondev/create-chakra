@@ -1,6 +1,6 @@
 {
 	"name": "create-chakra",
-	"version": "0.0.7",
+	"version": "0.0.7-fix-vue-logo",
 	"author": "Vedant Nandwana",
 	"main": "./lib/index.js",
 	"type": "module",
