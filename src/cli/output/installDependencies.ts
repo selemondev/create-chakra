@@ -12,38 +12,46 @@ import { UserInput } from "../config";
  * @param projectDir Path to the project directory
  */
 export default async function installDependencies(input: UserInput) {
-  const { projectDir, packageManager } = input;
+  const { projectDir, packageManager, appConfig } = input;
+  const { templateId } = appConfig;
 
   const devDependencies = input.dependencies.filter(
-    (d) => dependenciesMap[d] === "dev",
+    (d: string) => dependenciesMap[d] === "dev",
   );
   const dependencies = input.dependencies.filter(
-    (d) => dependenciesMap[d] === "dependencies",
+    (d: string) => dependenciesMap[d] === "dependencies",
   );
 
-  const packages = [
+  const template = templateId.includes("vue") ? "vue" : "react";
+
+  const packages: string[] | null = template === "react" ? [
     "@chakra-ui/react",
     "@emotion/react",
     "@emotion/styled",
     "framer-motion",
+  ] : [
     "@chakra-ui/vue-next",
     "@vueuse/shared",
-    ...devDependencies,
+    "@emotion/css",
+    "@chakra-ui/vue-system",
   ];
 
   const spinner = ora(`Installing dependencies`).start();
+
   await installPackages({
     dev: true,
     projectDir,
     packageManager,
-    packages,
+    packages: devDependencies,
   });
+
   await installPackages({
     dev: false,
     projectDir,
     packageManager,
-    packages: dependencies,
+    packages: [...packages, ...dependencies],
   });
+
   spinner.succeed(`Dependencies installed`);
 
   // If prettier is in dependencies create prettier config and prettier ignore files
