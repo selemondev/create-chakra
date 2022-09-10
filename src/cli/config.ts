@@ -124,6 +124,11 @@ export const REACT_CONFIG: AppConfig = {
       path.join(REACT_CONFIG.templateDir, "App.jsx"),
       path.join(projectDir, "src/App.jsx"),
     );
+
+    await fs.copy(
+      path.join(REACT_CONFIG.templateDir, "main.jsx"),
+      path.join(projectDir, "src/main.jsx"),
+    );
   },
   getCssOutputPath: ({ projectDir }) => {
     return path.join(projectDir, "src/index.css");
@@ -144,6 +149,11 @@ export const REACT_TS_CONFIG: AppConfig = {
     await fs.copy(
       path.join(REACT_TS_CONFIG.templateDir, "App.tsx"),
       path.join(projectDir, "src/App.tsx"),
+    );
+
+    await fs.copy(
+      path.join(REACT_TS_CONFIG.templateDir, "main.tsx"),
+      path.join(projectDir, "src/main.tsx"),
     );
   },
   getCssOutputPath: ({ projectDir }) => {
